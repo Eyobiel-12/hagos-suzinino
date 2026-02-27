@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Suzinino Europe Tour | Bahlina Presents Live Comedy Show",
   description:
     "Exclusive tickets for Suzinino Live Comedy Show. Zurich & Utrecht. Bahlina presents.",
+  verification: {
+    google: "Q2iF22WkJxV55yAKqo-7XXgxpmykALNrAQPrcC3AOqI",
+  },
 };
 
 export default function RootLayout({
