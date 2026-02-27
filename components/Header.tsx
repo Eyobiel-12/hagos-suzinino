@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
   { href: "#contra", label: "Tour" },
   { href: "#quote", label: "About" },
-  { href: "#watch", label: "Watch" },
+  { href: "#listen", label: "Listen" },
   { href: "#book", label: "Book" },
 ];
 
@@ -45,17 +46,20 @@ export default function Header() {
             : "bg-transparent"
         }`}
       >
-        {/* Logo — creative serif with gold accent */}
+        {/* Logo */}
         <a
           href="#hero"
-          className="group flex items-baseline gap-1 tap-target focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-background rounded-full"
+          className="flex items-center tap-target focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-background rounded-full"
+          aria-label="Bahlina — Home"
         >
-          <span className="font-serif text-base sm:text-lg text-white group-hover:text-accent-gold-light transition-colors tracking-tight">
-            Bahlina
-          </span>
-          <span className="hidden sm:inline font-sans text-[10px] uppercase tracking-[0.2em] text-accent-gold/80 group-hover:text-accent-gold transition-colors">
-            Presents
-          </span>
+          <Image
+            src="/images/logo.png"
+            alt="Bahlina"
+            width={100}
+            height={36}
+            className="h-8 w-auto sm:h-9"
+            priority
+          />
         </a>
 
         {/* Desktop nav — hidden on mobile */}

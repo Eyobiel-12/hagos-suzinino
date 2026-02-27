@@ -1,18 +1,20 @@
 export interface EventItem {
   id: string;
   city: string;
-  date: string;
-  dayNumber: string;
-  month: string;
-  dayLabel: string;
-  venue: string;
-  address: string;
-  ticketUrl: string;
-  flag: "ch" | "nl";
+  date?: string;
+  dayNumber?: string;
+  month?: string;
+  dayLabel?: string;
+  venue?: string;
+  address?: string;
+  ticketUrl?: string;
+  flag: "ch" | "nl" | "gb" | "de" | "no" | "se";
   /** Performer image for this city (under /images) */
   image: string;
   /** Optional theater/venue image */
   venueImage?: string;
+  /** No dates yet — show Coming Soon */
+  comingSoon?: boolean;
 }
 
 export const events: EventItem[] = [
@@ -45,5 +47,34 @@ export const events: EventItem[] = [
     flag: "nl",
     image: "/images/suzinino-utrucht.png",
     venueImage: "/images/utrecht-theater.png",
+  },
+  // Coming soon — no dates yet
+  {
+    id: "london",
+    city: "LONDON",
+    flag: "gb",
+    image: "/images/suzinino-euto-tour-flyer.png",
+    comingSoon: true,
+  },
+  {
+    id: "berlin",
+    city: "BERLIN",
+    flag: "de",
+    image: "/images/suzinino-euto-tour-flyer.png",
+    comingSoon: true,
+  },
+  {
+    id: "oslo",
+    city: "OSLO",
+    flag: "no",
+    image: "/images/suzinino-euto-tour-flyer.png",
+    comingSoon: true,
+  },
+  {
+    id: "stockholm",
+    city: "STOCKHOLM",
+    flag: "se",
+    image: "/images/suzinino-euto-tour-flyer.png",
+    comingSoon: true,
   },
 ];

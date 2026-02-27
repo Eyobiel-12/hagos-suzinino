@@ -4,7 +4,14 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const MARQUEE_ITEMS = ["🇨🇭 Switzerland", "🇳🇱 Netherlands", "🇨🇭 Switzerland", "🇳🇱 Netherlands"];
+const MARQUEE_ITEMS = [
+  "🇬🇧 England",
+  "🇩🇪 Germany",
+  "🇳🇱 Netherlands",
+  "🇳🇴 Norway",
+  "🇸🇪 Sweden",
+  "🇨🇭 Switzerland",
+];
 const HERO_FLYER = "/images/suzinino-euto-tour-flyer.png";
 
 // First show: Zurich, 06 June 2026

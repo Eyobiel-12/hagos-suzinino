@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ContraSection from "@/components/ContraSection";
 import QuoteSection from "@/components/QuoteSection";
-import VideoSection from "@/components/VideoSection";
+import SpotifySection from "@/components/SpotifySection";
 import BookSection from "@/components/BookSection";
 import Footer from "@/components/Footer";
 
@@ -13,7 +13,7 @@ export default function Home() {
       <Hero />
       <ContraSection />
       <QuoteSection />
-      <VideoSection />
+      <SpotifySection />
       <BookSection />
       <Footer />
     </main>

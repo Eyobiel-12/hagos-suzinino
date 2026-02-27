@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
+import { motion } from "framer-motion";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,8 +13,10 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const upcomingEvents = events.filter((e) => !e.comingSoon);
+const comingSoonEvents = events.filter((e) => e.comingSoon);
+
 export default function ContraSection() {
-  const [expanded, setExpanded] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
 
@@ -40,61 +42,51 @@ export default function ContraSection() {
       ref={sectionRef}
       className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-background"
     >
-      <div className="max-w-4xl mx-auto">
-        <h2 className="font-sans text-center text-text-muted text-xs uppercase tracking-[0.3em] mb-6">
-          Upcoming Shows
+      <div className="max-w-5xl mx-auto">
+        <h2 className="font-sans text-center text-text-muted text-xs uppercase tracking-[0.3em] mb-10">
+          Tour Dates
         </h2>
 
-        <button
-          type="button"
-          onClick={() => setExpanded(!expanded)}
-          className="w-full rounded-2xl border border-white/15 bg-white/[0.04] py-6 px-6 sm:py-8 sm:px-8 text-left tap-target focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-background transition-all hover:bg-white/[0.06] hover:border-accent-red/30"
-          aria-expanded={expanded}
-          aria-controls="contra-events"
-          id="contra-trigger"
-        >
-          <span className="font-serif text-3xl sm:text-4xl text-white block">
-            Contra
-          </span>
-          <p className="text-text-muted text-sm sm:text-base mt-2">
-            Tap to view dates, venues & tickets
-          </p>
-          <span
-            className="inline-flex items-center gap-2 mt-4 text-accent-gold text-sm font-sans uppercase tracking-wider"
-            aria-hidden
-          >
-            {expanded ? "Close" : "View tour dates"}
-            <span
-              className={`inline-block transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
-            >
-              ↓
-            </span>
-          </span>
-        </button>
+        {/* Upcoming — tickets available */}
+        <div role="region" aria-label="Upcoming shows with tickets">
+          <h3 className="font-sans text-accent-gold text-xs uppercase tracking-[0.25em] mb-4 flex items-center gap-3">
+            <span className="flex-1 h-px bg-accent-gold/30" aria-hidden />
+            Upcoming
+            <span className="flex-1 h-px bg-accent-gold/30" aria-hidden />
+          </h3>
+          <div className="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2">
+            {upcomingEvents.map((event, i) => (
+              <EventCard key={event.id} event={event} index={i} />
+            ))}
+          </div>
+        </div>
 
-        <AnimatePresence>
-          {expanded && (
-            <motion.div
-              id="contra-events"
-              role="region"
-              aria-labelledby="contra-trigger"
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{
-                duration: 0.45,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="overflow-hidden"
-            >
-              <div className="pt-8 sm:pt-10 grid gap-6 sm:grid-cols-2">
-                {events.map((event, i) => (
-                  <EventCard key={event.id} event={event} index={i} />
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Separator */}
+        <div className="my-12 sm:my-16 flex items-center gap-4">
+          <span className="flex-1 h-px bg-white/10" aria-hidden />
+          <span className="text-text-muted text-[10px] uppercase tracking-[0.3em]">
+            More cities
+          </span>
+          <span className="flex-1 h-px bg-white/10" aria-hidden />
+        </div>
+
+        {/* Coming Soon — dates TBA */}
+        <div role="region" aria-label="Coming soon">
+          <h3 className="font-sans text-text-muted text-xs uppercase tracking-[0.25em] mb-4 flex items-center gap-3">
+            <span className="flex-1 h-px bg-white/10" aria-hidden />
+            Coming Soon
+            <span className="flex-1 h-px bg-white/10" aria-hidden />
+          </h3>
+          <div className="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            {comingSoonEvents.map((event, i) => (
+              <EventCard
+                key={event.id}
+                event={event}
+                index={upcomingEvents.length + i}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
