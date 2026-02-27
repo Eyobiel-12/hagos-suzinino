@@ -71,18 +71,18 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
       </div>
 
-      {/* Flag marquee — bottom of hero */}
-      <div className="absolute bottom-20 left-0 right-0 overflow-hidden py-3 border-y border-white/10 z-10">
+      {/* Compact horizontal slideshow — countries */}
+      <div className="absolute bottom-16 left-0 right-0 overflow-hidden py-1.5 z-10">
         <motion.div
-          className="flex gap-8 whitespace-nowrap text-white/70 text-sm font-sans uppercase tracking-[0.25em]"
-          animate={{ x: [0, -640] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="flex gap-6 whitespace-nowrap text-white/60 text-xs font-sans uppercase tracking-[0.2em]"
+          animate={{ x: [0, -480] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
           aria-hidden
         >
           {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-            <span key={i} className="flex items-center gap-2">
+            <span key={i} className="flex items-center gap-1.5 shrink-0">
               {item}
-              <span className="text-white/30">|</span>
+              <span className="text-white/20">|</span>
             </span>
           ))}
         </motion.div>
