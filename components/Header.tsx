@@ -38,32 +38,33 @@ export default function Header() {
       className="fixed top-0 left-0 right-0 z-50 pt-[var(--safe-top)]"
       role="banner"
     >
-      {/* Mobile-first: compact bar, full nav on md+ */}
-      <nav
-        className={`mx-3 sm:mx-4 mt-3 sm:mt-4 flex items-center justify-between rounded-full px-4 py-3 transition-all duration-300 ${
-          scrolled
-            ? "bg-background/90 backdrop-blur-md border border-white/10 shadow-lg"
-            : "bg-transparent"
-        }`}
-      >
-        {/* Logo */}
+      {/* Logo outside the nav — no box */}
+      <div className="mx-3 sm:mx-4 mt-3 sm:mt-4 flex items-center justify-between gap-3">
         <a
           href="#hero"
-          className="flex items-center tap-target focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-background rounded-full"
+          className="flex items-center shrink-0 tap-target focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-background"
           aria-label="Bahlina — Home"
         >
           <Image
             src="/images/logo.png"
             alt="Bahlina"
-            width={100}
-            height={36}
-            className="h-8 w-auto sm:h-9"
+            width={140}
+            height={50}
+            className="h-10 w-auto sm:h-12 rounded-none object-contain"
             priority
           />
         </a>
 
-        {/* Desktop nav — hidden on mobile */}
-        <div className="hidden md:flex items-center gap-1">
+        {/* Nav bar — pill only around links + CTA */}
+        <nav
+          className={`flex items-center justify-between rounded-full px-4 py-3 transition-all duration-300 ${
+            scrolled
+              ? "bg-background/90 backdrop-blur-md border border-white/10 shadow-lg"
+              : "bg-transparent"
+          }`}
+        >
+          {/* Desktop nav — hidden on mobile */}
+          <div className="hidden md:flex items-center gap-1">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
@@ -113,7 +114,8 @@ export default function Header() {
             </div>
           </button>
         </div>
-      </nav>
+        </nav>
+      </div>
 
       {/* Mobile menu overlay */}
       <AnimatePresence>

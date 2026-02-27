@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const SPONSORS = [
   { name: "Bahlina", label: "Entertainment" },
-  { name: "Glossy Habeshas", label: "Beauty" },
+  { name: "Glossy Habeshas", label: "Entertainment" },
   { name: "Victory Hair Style", label: "Lifestyle" },
   { name: "EG Web Solutions", label: "Software Company", url: "https://www.egwebsolutions.nl/" },
 ];
