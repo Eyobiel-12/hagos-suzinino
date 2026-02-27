@@ -71,8 +71,8 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
       </div>
 
-      {/* Flag marquee */}
-      <div className="absolute top-[10%] left-0 right-0 overflow-hidden py-3 border-y border-white/10 z-10">
+      {/* Flag marquee — bottom of hero */}
+      <div className="absolute bottom-20 left-0 right-0 overflow-hidden py-3 border-y border-white/10 z-10">
         <motion.div
           className="flex gap-8 whitespace-nowrap text-white/70 text-sm font-sans uppercase tracking-[0.25em]"
           animate={{ x: [0, -640] }}
