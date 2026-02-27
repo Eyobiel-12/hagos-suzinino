@@ -11,6 +11,11 @@ const NAV_LINKS = [
   { href: "#book", label: "Book" },
 ];
 
+const SOCIAL_LINKS = [
+  { href: "https://www.tiktok.com/@bahlina_eu", icon: "fa-brands fa-tiktok", label: "TikTok" },
+  { href: "https://www.instagram.com/bahlina_", icon: "fa-brands fa-instagram", label: "Instagram" },
+];
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -65,16 +70,29 @@ export default function Header() {
         >
           {/* Desktop nav — hidden on mobile */}
           <div className="hidden md:flex items-center gap-1">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="px-3 py-2 text-sm text-white/80 hover:text-accent-gold transition-colors rounded-full tap-target focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-background"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="px-3 py-2 text-sm text-white/80 hover:text-accent-gold transition-colors rounded-full tap-target focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-background"
+              >
+                {link.label}
+              </a>
+            ))}
+            <span className="w-px h-4 bg-white/20 mx-1" aria-hidden />
+            {SOCIAL_LINKS.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-white/70 hover:text-accent-gold transition-colors rounded-full tap-target focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-background"
+                aria-label={`Bahlina on ${s.label}`}
+              >
+                <i className={`${s.icon} text-lg`} aria-hidden />
+              </a>
+            ))}
+          </div>
 
         {/* CTA + Hamburger (mobile) */}
         <div className="flex items-center gap-2">
@@ -151,6 +169,21 @@ export default function Header() {
                     {link.label}
                   </a>
                 ))}
+                <div className="flex justify-center gap-4 px-6 py-4 border-t border-white/10">
+                  {SOCIAL_LINKS.map((s) => (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={handleNavClick}
+                      className="text-white/70 hover:text-accent-gold transition-colors p-2 tap-target focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-inset rounded-full"
+                      aria-label={`Bahlina on ${s.label}`}
+                    >
+                      <i className={`${s.icon} text-2xl`} aria-hidden />
+                    </a>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </>
