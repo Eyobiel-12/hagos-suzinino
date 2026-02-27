@@ -29,16 +29,16 @@ export default function EventCard({
       whileHover={{ y: -2 }}
       whileTap={{ scale: 0.99 }}
     >
-      {/* Image — left side, horizontal card */}
-      <div className="relative w-28 sm:w-32 flex-shrink-0 aspect-[3/4] overflow-hidden">
+      {/* Image — left side, horizontal card; larger for flyer visibility */}
+      <div className="relative w-36 sm:w-44 flex-shrink-0 aspect-[3/4] overflow-hidden">
         <Image
           src={event.image}
           alt={`Suzinino — ${event.city}`}
           fill
-          className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-          sizes="(max-width: 640px) 112px, 128px"
+          className={`object-cover transition-transform duration-500 group-hover:scale-105 ${event.comingSoon ? "blur-md object-top" : "object-center"}`}
+          sizes="(max-width: 640px) 144px, 176px"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/25 via-transparent to-transparent" />
         <div className="absolute top-2 left-2 flex items-center gap-1.5 rounded-full bg-background/80 px-2 py-1 backdrop-blur-sm">
           <span className="text-sm" aria-hidden>
             {FLAGS[event.flag]}

@@ -39,7 +39,7 @@ export const events: EventItem[] = [
     date: "07 JULY",
     dayNumber: "07",
     month: "JULY",
-    dayLabel: "Sunday",
+    dayLabel: "Tuesday",
     venue: "Beatrix Theater",
     address: "JAARBEURSPLEIN 6A, 3521 AL UTRECHT",
     ticketUrl:
