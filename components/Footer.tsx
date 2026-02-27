@@ -65,13 +65,34 @@ export default function Footer() {
 
       <div className="py-8 px-4 sm:px-6">
         <motion.div
-          className="max-w-2xl mx-auto text-center text-text-muted text-sm"
+          className="max-w-2xl mx-auto text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p>
+          {/* Social links — Font Awesome icons */}
+          <div className="flex justify-center gap-6 mb-6">
+            <a
+              href="https://www.tiktok.com/@bahlina_eu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-accent-gold transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-background rounded-full p-2"
+              aria-label="Bahlina on TikTok"
+            >
+              <i className="fa-brands fa-tiktok text-2xl" aria-hidden />
+            </a>
+            <a
+              href="https://www.instagram.com/bahlina_"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-accent-gold transition-colors focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-background rounded-full p-2"
+              aria-label="Bahlina on Instagram"
+            >
+              <i className="fa-brands fa-instagram text-2xl" aria-hidden />
+            </a>
+          </div>
+          <p className="text-text-muted text-sm">
             © {new Date().getFullYear()} Bahlina Entertainment. All rights
             reserved.
           </p>
