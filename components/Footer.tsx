@@ -35,7 +35,7 @@ export default function Footer() {
           {SPONSORS.map((s) => {
             const content = (
               <>
-                <span className="font-serif text-lg sm:text-xl text-white/90 block whitespace-nowrap">
+                <span className="font-serif text-lg sm:text-xl text-white/90 block whitespace-nowrap" style={{ wordSpacing: "0.15em" }}>
                   {s.name}
                 </span>
                 <span className="text-text-muted text-xs uppercase tracking-wider">
