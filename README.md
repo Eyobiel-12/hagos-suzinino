@@ -9,7 +9,7 @@ Premium, mobile-first website for Suzinino's Live Comedy Show — Zurich & Utrec
 - **Quote** — "Laughter is the universal language that connects all cultures"
 - **Watch** — Nostalgic song video embed
 - **Book** — Love Against The Wall by Hagos Weldegebriel Debesay (Amazon link)
-- **Sponsors** — Bahlina, Glossy Habeshas, VictoryHairStyle, EG Web Solutions
+- **Sponsors** — Bahlina, Glossy Habeshas, Victory HairStyle, EG Web Solutions
 
 ## Tech Stack
 
